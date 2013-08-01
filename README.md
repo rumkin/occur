@@ -26,4 +26,6 @@ handler.trigger({type : 'handle', value : 1});
 // --> handle 1 true
 handler.trigger('handle');
 // --> handle undefined true
+handler.trigger(new Occur.Event('handle', {value: 2}));
+// --> handle 2 true
 ```
