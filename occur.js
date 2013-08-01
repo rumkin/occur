@@ -93,7 +93,8 @@ function Event(type, params) {
 		if (params.hasOwnProperty(prop)) {
 			Object.defineProperty(this, prop, {
 				configurable : false, 
-				value        : params[prop]
+				value        : params[prop],
+				enumerable   : true
 			})
 		}
 	}
