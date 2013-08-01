@@ -48,7 +48,9 @@ Occur.prototype.trigger = function(event, arg) {
 	if (typeof event === 'string') {
 		event = new Event(event, { target : this });
 	} else {
-		event.target = this;
+		if ( ! event.target) {
+			event.target = this;
+		}
 		event = new Event(event);
 	}
 
