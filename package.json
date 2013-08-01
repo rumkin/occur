@@ -1,0 +1,21 @@
+{
+  "name": "occur",
+  "version": "0.1.0",
+  "description": "Alternative event lib",
+  "main": "occur.js",
+  "scripts": {
+    "test": "exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rumkin/occur.git"
+  },
+  "keywords": [
+    "event"
+  ],
+  "author": "Pasha Rumkin <dev@rumk.in>",
+  "license": "GPLv2",
+  "bugs": {
+    "url": "https://github.com/rumkin/occur/issues"
+  }
+}
