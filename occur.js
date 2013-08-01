@@ -45,13 +45,15 @@ Occur.prototype.off = function(event, callback) {
 Occur.prototype.trigger = function(event, arg) {
 	var _events = this._events;
 
-	if (typeof event === 'string') {
-		event = new Event(event, { target : this });
-	} else {
-		if ( ! event.target) {
-			event.target = this;
+	if (event instanceof Event === false) {
+		if (typeof event === 'string') {
+			event = new Event(event, { target : this });
+		} else {
+			if ( ! event.target) {
+				event.target = this;
+			}
+			event = new Event(event);
 		}
-		event = new Event(event);
 	}
 
 	if (_events.hasOwnProperty(event.type) === false) {
@@ -82,12 +84,10 @@ Occur.prototype.trigger = function(event, arg) {
 function Event(type, params) {
 	this.isPropagationStopped = false;
 	params = params || {};
-	if (event instanceof Event === false) {
-		if (typeof type !== 'object') {
-			params.type = type;
-		} else {
-			params = type;
-		}
+	if (typeof type !== 'object') {
+		params.type = type;
+	} else {
+		params = type;
 	}
 	// Define immutable properties
 	var prop;
