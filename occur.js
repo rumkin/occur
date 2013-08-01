@@ -82,10 +82,12 @@ Occur.prototype.trigger = function(event, arg) {
 function Event(type, params) {
 	this.isPropagationStopped = false;
 	params = params || {};
-	if (typeof type !== 'object') {
-		params.type = type;
-	} else {
-		params = type;
+	if (event instanceof Event === false) {
+		if (typeof type !== 'object') {
+			params.type = type;
+		} else {
+			params = type;
+		}
 	}
 	// Define immutable properties
 	var prop;
