@@ -29,7 +29,7 @@ Occur.prototype.off = function(event, callback) {
 	if ( ! _events.hasOwnProperty(event)) {
 		return;
 	} else if (callback) {
-		_events[event] = _events.event.filter(function(item){ return item !== callback; });
+		_events[event] = _events[event].filter(function(item){ return item !== callback; });
 	} else {
 		delete _events[event];
 	}
