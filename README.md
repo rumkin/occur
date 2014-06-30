@@ -1,27 +1,29 @@
 Occur
 =====
 
-Occur event is a browser-like implementation of javascript events.
+Occur event is an implementation of w3c-like events.
 
 Example
 ---
 
-Example usage of usage with inheritance. 
+Example with inheritance. 
 
 ```javascript
 var Occur = require('occur');
 var utils = require('utils');
 
-function Handler() {
+function SomeHandler() {
     Occur.call(this);
 }
 
-utils.inherits(Handler, Occur);
+utils.inherits(SomeHandler, Occur);
 
-var handler = new Handler();
+var handler = new SomeHandler();
 handler.on('handle', function(e) {
     console.log(e.type, e.value, e.target === handler);
 });
+
+// Trigger events
 handler.trigger({type : 'handle', value : 1});
 // --> handle 1 true
 handler.trigger('handle');
